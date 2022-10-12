@@ -112,7 +112,6 @@ $BTN_OPERATOR_SUB[0].addEventListener("click", () => {
     display()
 })
 
-
 $BTN_DELETE[0].addEventListener("click", () => {
     deleteNumber()
     display()
