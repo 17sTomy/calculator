@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500&family=Roboto:wght@400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    background: linear-gradient(45deg, #f06291, #fffde7);
+}
+
+.container{
+    height: 100vh;
+}
+
+.calculator {
+    margin: 50px auto;
+    width: 320px;
+    height: 550px;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: 130px repeat(6, 60px);
+    gap: 10px;
+    justify-content: center;
+    border-radius: 20px;
+    padding-top: 20px;
+    box-shadow: 0 0 30px rgb(187, 130, 130);
+}
+
+button {
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .2s;
+} 
+
+.display {
+    color: rgb(20,20,20);
+    opacity: .7;
+    grid-column: span 4;
+    text-align: end;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.span2 {
+    grid-column: span 2;
+    border-radius: 30px;
+}
+
+.higher-val {
+    color: rgb(0,0,0);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.lower-val {
+    color: rgb(0,0,0);
+    font-size: 2.5rem;
+}
+
+.btn-delete{
+    background-color: #ffd5d8;
+    color: #fc4552;
+}
+.btn-delete:hover{
+    background-color: #f6b7bc;
+}
+
+.btn-number{
+    background-color: #c3eaff;
+    color: #000;
+}
+.btn-number:hover{
+    background-color: #95d4f5;
+}
+
+.btn-operator{
+    background-color: #ffd0fb;
+    color: #f967f3;
+}
+.btn-operator:hover{
+    background-color: #fcabf6;
+    color: #f94ef4;
+}
+
+.btn-equal{
+    background-color: #adf9e7;
+    color: #000;
+}
+.btn-equal:hover{
+    background-color: #85f8dd;
+    color: #000;
+}
