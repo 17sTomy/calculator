@@ -40,11 +40,10 @@ const calculate = () => {
 
     if (resultado % 1 !== 0){
         resultado = resultado.toFixed(4)
-        let resto = resultado.toString().slice(-3)
         resultado = parseFloat(resultado)
-        if (resto === "000"){
+        if (resultado.toString().slice(-3) === "000"){
             resultado = resultado.toFixed(1)
-        }else if (resto === "00"){
+        }else if (resultado.toString().slice(-2) === "00"){
             resultado = resultado.toFixed(2)
         }
     }
@@ -75,7 +74,7 @@ const deleteAll = () => {
 }
 
 const addNumber = number => {
-    if (valorInferior === "" && number === "0") return
+    if (valorInferior === "0" && number === "0") return
     if (valorInferior.length > 9) return
     if (number === "." && valorInferior.indexOf(".") !== -1) return
     valorInferior += number
