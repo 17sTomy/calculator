@@ -2,6 +2,7 @@ const $LOWER_VAL = document.querySelector("[data-lower-val]"),
     $HIGHER_VAL = document.querySelector("[data-higher-val]"),
     $BTN_NUMBERS = document.querySelectorAll("[data-number]"),
     $BTN_OPERATOR = document.querySelectorAll("[data-operator]"),
+    $BTN_OPERATOR_SUB = document.querySelectorAll("[data-operator-sub]"),
     $BTN_DELETE_ALL = document.querySelectorAll("[data-delete-all]"),
     $BTN_DELETE = document.querySelectorAll("[data-delete]"),
     $BTN_EQUAL = document.querySelectorAll("[data-equal]")
@@ -54,7 +55,14 @@ const calculate = () => {
 }
 
 const chooseOperation = operator => {
-    if (valorInferior === "") return 
+    if (valorInferior === "-"){
+        valorInferior = ""
+        return
+    }
+    if (valorInferior === ""){
+        operador = operator
+        return
+    }
     if (valorSuperior !== ""){
         calculate()
     }
@@ -74,6 +82,7 @@ const deleteAll = () => {
 }
 
 const addNumber = number => {
+    if (valorInferior !== "" && number === "-") return
     if (valorInferior === "0" && number === "0") return
     if (valorInferior.length > 9) return
     if (number === "." && valorInferior.indexOf(".") !== -1) return
@@ -93,6 +102,16 @@ $BTN_OPERATOR.forEach(btn => {
         display()
     })
 })
+
+$BTN_OPERATOR_SUB[0].addEventListener("click", () => {
+    if (valorInferior === ""){
+        addNumber($BTN_OPERATOR_SUB[0].textContent)
+    }else{
+        chooseOperation($BTN_OPERATOR_SUB[0].textContent)
+    }
+    display()
+})
+
 
 $BTN_DELETE[0].addEventListener("click", () => {
     deleteNumber()
