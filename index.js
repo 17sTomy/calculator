@@ -39,7 +39,14 @@ const calculate = () => {
     }
 
     if (resultado % 1 !== 0){
-        resultado = resultado.toFixed(3)
+        resultado = resultado.toFixed(4)
+        let resto = resultado.toString().slice(-3)
+        resultado = parseFloat(resultado)
+        if (resto === "000"){
+            resultado = resultado.toFixed(1)
+        }else if (resto === "00"){
+            resultado = resultado.toFixed(2)
+        }
     }
 
     valorInferior = resultado
