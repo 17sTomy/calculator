@@ -48,7 +48,7 @@ const calculate = () => {
 }
 
 const chooseOperation = operator => {
-    if (valorInferior == "") return 
+    if (valorInferior === "") return 
     if (valorSuperior !== ""){
         calculate()
     }
