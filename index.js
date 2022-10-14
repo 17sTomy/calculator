@@ -67,8 +67,8 @@ const calculate = () => {
 
     valorInferior = resultado
     valorSuperior = ""
-    checkIfInfinity(valorInferior)
     operador = null
+    checkIfInfinity(valorInferior)
 }
 
 const chooseOperation = operator => {
@@ -102,6 +102,7 @@ const deleteAll = () => {
 const addNumber = number => {
     verifyMathError()
     if (valorInferior !== "" && number === "-") return
+    if (valorInferior === "" && number === ".") return
     if (valorInferior === "0" && number === "0") return
     if (valorInferior.length > 9) return
     if (number === "." && valorInferior.indexOf(".") !== -1) return
