@@ -10,6 +10,7 @@ const $LOWER_VAL = document.querySelector("[data-lower-val]"),
 let valorSuperior = "",
     valorInferior = "",
     operador = null,
+    equal = false,
     mathError = false
 
 const display = () => {
@@ -29,6 +30,12 @@ const checkIfInfinity = typeOfVal => {
         deleteAll()
         valorInferior = "Math Error"
         mathError = true
+    }
+}
+
+const ifItsEqual = () => {
+    if (valorInferior !== "Math Error"){
+        equal = true
     }
 }
 
@@ -99,6 +106,10 @@ const deleteAll = () => {
 }
 
 const addNumber = number => {
+    if (equal){
+        deleteAll()
+        equal = false
+    }
     verifyMathError()
     if (valorInferior !== "" && number === "-") return
     if (valorInferior === "" && number === ".") return
@@ -117,6 +128,7 @@ $BTN_NUMBERS.forEach(btn => {
 
 $BTN_OPERATOR.forEach(btn => {
     btn.addEventListener("click", () => {
+        equal = (equal) ? !equal : equal
         verifyMathError()
         chooseOperation(btn.textContent)
         display()
@@ -124,6 +136,7 @@ $BTN_OPERATOR.forEach(btn => {
 })
 
 $BTN_OPERATOR_SUB[0].addEventListener("click", () => {
+    equal = (equal) ? !equal : equal
     verifyMathError()
     if (valorInferior === ""){
         addNumber($BTN_OPERATOR_SUB[0].textContent)
@@ -148,4 +161,5 @@ $BTN_DELETE_ALL[0].addEventListener("click", () => {
 $BTN_EQUAL[0].addEventListener("click", () => {
     calculate()
     display()
+    ifItsEqual()
 })
