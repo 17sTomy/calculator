@@ -134,11 +134,13 @@ $BTN_OPERATOR_SUB[0].addEventListener("click", () => {
 })
 
 $BTN_DELETE[0].addEventListener("click", () => {
+    verifyMathError()
     deleteNumber()
     display()
 })
 
 $BTN_DELETE_ALL[0].addEventListener("click", () => {
+    verifyMathError()
     deleteAll()
     display()
 })
