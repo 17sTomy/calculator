@@ -10,7 +10,6 @@ const $LOWER_VAL = document.querySelector("[data-lower-val]"),
 let valorSuperior = "",
     valorInferior = "",
     operador = null,
-    btnIgual = 0,
     mathError = false
 
 const display = () => {
