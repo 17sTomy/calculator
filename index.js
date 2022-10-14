@@ -26,7 +26,7 @@ const verifyMathError = () => {
 }
 
 const checkIfInfinity = typeOfVal => {
-    if(typeOfVal === Infinity || typeOfVal === "Infinity" || typeOfVal === "Math Error"){
+    if(typeOfVal === Infinity || typeOfVal === -Infinity || typeOfVal === "Infinity" || typeOfVal === "Math Error" || isNaN(typeOfVal) || typeOfVal === "NaN"){
         deleteAll()
         valorInferior = "Math Error"
         mathError = true
@@ -70,7 +70,6 @@ const calculate = () => {
             resultado = resultado.toFixed(2)
         }
     }
-
     valorInferior = resultado
     valorSuperior = ""
     operador = null
